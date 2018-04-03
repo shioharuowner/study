@@ -1,0 +1,24 @@
+20180403
+
+■予定
+・GitHubの教科書4～7章
+
+■実績
+・GitHubの教科書4～7章
+
+■所感
+・SourceTreeでerror: Cannot delete branch が出た
+　→currentのブランチだったから。参照中とかでcurrentだったら削除できない
+
+・GitHub上でYour account has been flagged.と出た
+　→同じようなtestばかりしていたためbotと勘違いされた？
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Gitでブランチを削除しようとして怒られた時の対応方法
+https://qiita.com/ponsuke0531/items/7835eaf129f212a6c8e9
+
+Your account has been flagged.って?どきどきしながらgithub.com/contactに英語でメールしてみた
+http://a-habakiri.hateblo.jp/entry/2016/12/09/224259
