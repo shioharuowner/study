@@ -1,0 +1,66 @@
+20180404
+
+■予定
+・Node.jsの教科書選定
+・Node.jsの教科書見積
+・JS+Node.jsによるWebクローラー／ネットエージェント1章
+
+■実績
+・Node.jsの教科書選定
+・Node.jsの教科書見積
+・JS+Node.jsによるWebクローラー／ネットエージェント1章
+
+■所感
+・JS+Node.jsによるWebクローラー／ネットエージェントを選んだ理由
+　→Node.jsの入門書を見たとき、初心者用すぎたのでもう少し踏み込んだやつが欲しかったため
+　　クローラーは音ゲーやDTMのデータ収集など趣味にも役立つと思ったため
+・Register file associations : ファイルの関連付けを登録する
+
+・vagrant up実行後エラー
+
+エラー内容
+------------------------------
+The version of powershell currently installed on this host is less than
+the required minimum version. Please upgrade the installed version of
+powershell to the minimum required version and run the command again.
+
+  Installed version: N/A
+  Minimum required version: 3
+------------------------------
+powershellのバージョンが足りていなかったため。
+自分のPCはwindows7標準のpowershellは2.0だったため。
+→最新の5.1をインストールして解決
+
+windowsキー+R 、 powershell でpowershell起動。
+$PSVersionTable でpowershellのバージョン確認
+
+・環境構築時、ダウンロードに時間掛かる
+回線変えるか…？
+
+・新しいエディタ
+Brancketsを使ってみることにする
+
+・良い曲
+Dear Teardrop
+DEPARTURES (SUNSHINE REMIX)
+So far away from home (Beautiful Journey) (Eurobeat Mix)
+Body 2 Body, Soul 2 Soul
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+VirtualBox (5.2.8)
+https://www.virtualbox.org/wiki/Downloads
+
+Vagrant (2.0.3)
+https://www.vagrantup.com/downloads.html
+
+Windows Power Shell 5.0 を Windows7 にインストールする手順
+https://qiita.com/busonx/items/2ebca42866833516c772
+
+Windows Management Framework 5.1(ここにpowershell5.1が含まれている)
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=54616
+
+史上最強のエディタBracketsに出会ってしまった
+https://www.fourglobe.co.jp/blog/p-52909
