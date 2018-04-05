@@ -1,0 +1,87 @@
+20180405
+
+■予定
+・JS+Node.jsによるWebクローラー／ネットエージェント2～3章
+
+■実績
+・JS+Node.jsによるWebクローラー／ネットエージェント2～3章
+
+■所感
+・ホストマシンと仮想マシンの共有フォルダ
+　→/vagrant 配下
+
+・Node.jsは時間の掛かる処理を非同期で行うスタイル
+
+・npm install cheerio-httpcli 実行時エラー
+　→エラーメッセージ的に色々Not Foundになってて足りてなかった様子なので、最新のNode.js入れてみた
+　　nvm use v8.11.1
+　　解決
+
+・node showimags.js 実行時エラー
+　→もともとが日本語ドメインだったので文字コードとかで取得できてなかった様子。
+　　var url = "http://ja.wikipedia.org/wiki/イヌ";
+　　変換して解決。
+　　var url = "https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%8C";
+
+・node dl-image.js 実行時エラー
+　→上記と同じ原因。
+
+・Node.jsは同期的に処理を行う関数は***Syncという接頭辞がついている
+
+・cron記述方法
+　→カレントディレクトリに注意してパスを指定してcron実行する場合、直接crontabに書くのではなく、
+　　一回シェルの中でパスを指定してからシェルの中でスクリプト実行すればcronの記述が短くて済む
+
+・sudo npm install -g phantomjs ができない
+　→sudo: npm: command not foundが出て何故かできない
+　　npm単体でもnpm: command not foundが出てくる
+　　色々対処してみたが実行できなかったので初めてのvagrant destory
+　　再度Node.js入れなおし
+　　curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.3/install.sh | bash
+　　nvm install v8.11.1
+　　nvm alias default v8.11.1
+　　npm 実行はできるようになった
+　　sudoで実行せず、
+　　npm install -g phantomjs@1.9.17
+　　npm install -g casperjs@1.1.0-beta3
+　　で実行して次に進めることにした
+
+・キャプチャ画像内が文字化けしてる
+　→vagrant上のCentOSが日本語になっていないから。
+　　sudo yum -y groupinstall "Japanese Support"
+　　sudo localedef -f UTF-8 -i ja_JP ja_JP.utf8
+　　sudo vi /etc/sysconfig/i18n
+　　LANG="en_US.UTF-8"
+　　↓
+　　LANG="ja_JP.UTF-8"
+　　にして解決
+
+・casperjs getfav.js でエラー
+　→CasperError: Errors encountered while filling form: form not found
+　　/home/vagrant/.nvm/versions/node/v0.12.4/lib/node_modules/casperjs/modules/casper.js:802 in fillForm
+　　/home/vagrant/.nvm/versions/node/v0.12.4/lib/node_modules/casperjs/modules/casper.js:862 in fillNames
+　　/vagrant/src/ch03/02-login/getfav.js:17
+　　/home/vagrant/.nvm/versions/node/v0.12.4/lib/node_modules/casperjs/modules/casper.js:1553 in runStep
+　　/home/vagrant/.nvm/versions/node/v0.12.4/lib/node_modules/casperjs/modules/casper.js:399 in checkStep
+　　フォームが取得できていない。
+　　このサイトのフォームにはidもネームも付いてないしセレクタの問題かも。
+　　解決せず。っていうか一個一個実行するたびエラー出すぎだろ…
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+日本語ドメイン変換【punycode変換】
+https://www.cman.jp/network/support/punycode.html
+
+npm installで失敗したときの5つの解決方法
+https://sugimotonote.com/2017/10/31/npm-install-error/
+
+npmで「sudo: npm: command not found」という警告が出たので対処。
+http://learnaboutjs.blogspot.jp/2015/04/npmsudo-npm-command-not-found.html
+
+npm installで失敗したときの5つの解決方法
+https://sugimotonote.com/2017/10/31/npm-install-error/
+
+VagrantのCentOSを日本語化してみる
+http://d.hatena.ne.jp/yk5656/20140527/1402758009
