@@ -1,0 +1,45 @@
+20180406
+
+■予定
+・JS+Node.jsによるWebクローラー／ネットエージェント4～5章
+
+■実績
+・JS+Node.jsによるWebクローラー／ネットエージェント4～5章
+
+■所感
+・coffeescriptの真と偽
+　→true/false、on/off、yes/noがある
+
+・npm install sqlite3 でエラー
+　→またnpmか
+　　sudo npm install --unsafe-perm -g sqlite3
+　　で実行
+　　→駄目
+　→Node.jsとnpmのバージョンを変えてみて実行
+　　nvm install v7.7.1
+　　nvm alias default v7.7.1
+　　sudo npm install -g npm@4.1.2
+　　npm install sqlite3
+　　sqlite3 -version
+　　解決
+
+・node sqlite-aozora.js実行後、本にDBを確認する記述が無かったので
+　→sqlite3 使い方
+　　ログイン sqlite3 [データベースファイル名]
+　　データベース一覧 .databases
+　　セレクト文 select * from items limit 1;
+
+・npm install = npm i
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+NodeJs npm install sqite3がエラーになる！！[Centos7]
+https://omohikane.com/nodejs_npm_sqlite_error_centos7/
+
+Node.jsでSQLite3を使ってみる
+http://web-engine.hatenadiary.com/entry/20170315/1489550428
+
+SQLite入門
+https://www.dbonline.jp/sqlite/
