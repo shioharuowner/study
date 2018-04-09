@@ -1,0 +1,51 @@
+20180409
+
+■予定
+・JS+Node.jsによるWebクローラー／ネットエージェント6～7章
+
+■実績
+・JS+Node.jsによるWebクローラー／ネットエージェント6～7章
+
+■所感
+・Twitter Developers
+　→Twitterアカウントに電話番号を登録していないと駄目。
+
+・Please try running this command again as root/Administrator.
+　→これ出るとき多い。大体sudo忘れ。
+
+・node flickr-seach.js でエラー
+　→/vagrant/src/ch06/06-flickr/flickr-search.js:19
+　　  var page = result.photos.page;
+　　                   ^
+　　
+　　TypeError: Cannot read property 'photos' of null
+　　    at /vagrant/src/ch06/06-flickr/flickr-search.js:19:20
+　　    at IncomingMessage.<anonymous> (/vagrant/src/ch06/06-flickr/node
+　　    at emitNone (events.js:91:20)
+　　    at IncomingMessage.emit (events.js:188:7)
+　　    at endReadableNT (_stream_readable.js:974:12)
+　　    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+　　    at process._tickCallback (internal/process/next_tick.js:104:9)
+　　と出る。呼び出し方的には間違ってなさそうだが？
+
+　　公式ドキュメントのnode-flickrを見ると、
+　　flickr.get("photos.search", {"tags":"cat,dogs"}, function(err, result){
+　　    if (err) return console.error(err);
+　　    console.log(result.photos);
+　　});
+　　のように書いてあったため、
+　　function(err, result)と引数を二つとるように記述したら解決。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Twitter Developers
+https://dev.twitter.com
+https://apps.twitter.com
+
+【廃止時期追記あり】Twitter User streams APIは今後廃止されます
+http://h.s64.jp/entry/2017/04/16/121647
+
+node-flickr
+https://www.npmjs.com/package/node-flickr
