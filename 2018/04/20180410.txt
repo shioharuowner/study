@@ -1,0 +1,83 @@
+20180410
+
+■予定
+・JS+Node.jsによるWebクローラー／ネットエージェント8章
+・画像タイル化要件定義/基本設計
+
+■実績
+・JS+Node.jsによるWebクローラー／ネットエージェント8章
+・画像タイル化要件定義/基本設計
+
+■所感
+・npm install cheerio-httpcli 実行時エラー
+　→またかーい
+　　最新のv8.11.1を使用していたため、
+　　Node.jsとnpmのバージョンを変えてみて実行
+　　nvm install v7.7.1
+　　nvm alias default v7.7.1
+　　解決
+
+・ogr2ogr -f GeoJSON -where 'geonuit = "Japan"' japan-geo.json ne_10m_admin_1_states_provinces.shp 実行時エラー
+　FAILURE:
+　Unable to open datasource `ne_10m_admin_1_states_provinces.shp' with the following drivers.
+　  -> ESRI Shapefile
+　  -> MapInfo File
+　  -> UK .NTF
+　  -> SDTS
+　  -> TIGER
+　  -> S57
+　  -> DGN
+　  -> VRT
+　  -> REC
+　  -> Memory
+　  -> BNA
+　  -> CSV
+　  -> GML
+　  -> GPX
+　  -> KML
+　  -> GeoJSON
+　  -> Interlis 1
+　  -> Interlis 2
+　  -> GMT
+　  -> SQLite
+　  -> DODS
+　  -> ODBC
+　  -> PGeo
+　  -> OGDI
+　  -> PostgreSQL
+　  -> MySQL
+　  -> PCIDSK
+　  -> XPlane
+　  -> AVCBin
+　  -> AVCE00
+　  -> DXF
+　  -> Geoconcept
+　  -> GeoRSS
+　  -> GPSTrackMaker
+　  -> VFK
+　→工程を見落としてne_10m_admin_1_states_provinces.shpのDLを飛ばしてた
+　　DL後は実行できたため解決。
+
+・JS+Node.jsによるWebクローラー／ネットエージェント総評
+　→もともと書籍が間違っていたり、書籍の記述をそのままだと現在のバージョンだと動かなかったり。
+　　なのでクローラーの勉強と言うよりかはNode.jsのnpmエラー回避の勉強になってしまったかも。
+　　ただクローラーの手法自体は豊富なのでとても参考にはなった。
+
+・クローラー系の成果物実装
+　→画像のURLの規則に則り、APIから画像を陳列するものを作成しようと思う
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+npm install -gでグローバルインストールしたのに見つけてくれない
+https://qiita.com/chkk525@github/items/ea1c2a110bf74efd843c
+
+グローバルにインストールしたnode moduleがnot foundになる時の対処
+https://qiita.com/joe-re/items/12987cdeee506dea3889
+
+ニコニコ静画API
+http://seiga.nicovideo.jp/api/tagslide/data
+
+CSS(Flexbox)だけでタイルレイアウト(Masonry)を表示するサンプル
+https://digipress.digi-state.com/tech/pure-css-flexbox-masonry-sample/
