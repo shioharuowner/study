@@ -1,0 +1,43 @@
+20180411
+
+■予定
+・画像タイル化詳細設計/実装
+
+■実績
+・画像タイル化詳細設計/実装
+
+■所感
+・ニコニコ静画API
+　→事前ログインが必要かつ、外部からのファイルオープンstreamができない？
+　Warning: simplexml_load_file(http://seiga.nicovideo.jp/api/tagslide/data): failed to open stream: HTTP request failed! HTTP/1.0 403 Forbidden in /home/shioharu/shioharu.minibird.jp/public_html/tiling/index.php on line 10
+　Warning: simplexml_load_file(): I/O warning : failed to load external entity "http://seiga.nicovideo.jp/api/tagslide/data" in /home/shioharu/shioharu.minibird.jp/public_html/tiling/index.php on line 10
+　ので、設計を変更することにした。
+　Google Custom Search APIを使うことにする
+　→http://blog.wackwack.net/entry/2017/12/26/211044
+
+・Google Custom Search API
+　→概要
+　https://console.developers.google.com/apis/dashboard から、Custom Search API を有効化する
+　https://console.developers.google.com/apis/credentials から、認証情報を作成→APIキーを作成しメモする
+　https://cse.google.com/cse/setup/basic から画像検索のAPIとなるように設定。検索エンジンIDをメモする
+　https://www.googleapis.com/customsearch/v1 にAPIキーと検索エンジンIDを渡すことでカスタム検索可能となる
+　※無償版だと検索結果10件までとか1日のリクエストは100回までとか制限あり。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+ニコニコ静画API
+http://seiga.nicovideo.jp/api/tagslide/data
+
+CSS(Flexbox)だけでタイルレイアウト(Masonry)を表示するサンプル
+https://digipress.digi-state.com/tech/pure-css-flexbox-masonry-sample/
+
+section, article を使う前に知っておきたいこと
+http://wp-e.org/2014/04/06/1734/
+
+Google Custom Search APIを使って画像の自動収集
+http://blog.wackwack.net/entry/2017/12/26/211044
+
+画面キャプチャをgif化
+https://nelog.jp/screen-to-gif
