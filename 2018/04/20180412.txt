@@ -1,0 +1,47 @@
+20180412
+
+■予定
+・Apache[実践]運用/管理 1~3章
+
+■実績
+・Apache[実践]運用/管理 1~3章
+
+■所感
+・Apache[実践]運用/管理 選定理由
+　→サーバ設定を弄ることが多かった時期にこの本を購入したが、
+　　忙しすぎて本の内容を全然やらないまま終わってしまったため。
+　　また、以前の案件はApacheの記述がゴチャゴチャしていたため、
+　　基礎を改めて身につけようと思ったため。
+
+・Apacheインストール
+　→XAMPPのものを使用する
+　　バージョンは以下の通り2.4を使用する
+　　C:\xampp\apache\bin>httpd -v
+　　Server version: Apache/2.4.10 (Win32)
+　　Apache Lounge VC11 Server built:   Jul 17 2014 11:50:08
+
+・AccessFileNameディレクティブ
+　→.htaccessファイルを別名で指定できる
+
+・コンテナ指示子
+　→<Directory />
+　　　↑こういうやつの正式名称
+
+・.htaccessの使用を禁止にする
+　→<Directory />
+　　  AllowOverride None
+　　</Directory>
+
+・.htaccessを使用する場合は.htaccessへの直アクセスを防ぐ必要がある
+　→.htで始まるファイルへのアクセスを防ぐ
+　　<Files ~ "^\.ht" />
+　　  Order allow,deny
+　　  Deny from all
+　　</Files>
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Apache HTTP サーバ バージョン 2.4 ディレクティブ一覧
+https://httpd.apache.org/docs/2.4/ja/mod/directives.html
