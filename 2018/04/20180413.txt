@@ -1,0 +1,17 @@
+20180413
+
+■予定
+・Apache[実践]運用/管理 4~6章
+
+■実績
+・Apache[実践]運用/管理 4章
+・4/14が雨っぽいので急遽予定を変更。
+　Apache[実践]運用/管理 5~6章は4/14にリスケ
+
+■所感
+・httpd -M
+　→拡張モジュールの一覧
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
