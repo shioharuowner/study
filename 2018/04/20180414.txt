@@ -1,0 +1,20 @@
+20180414
+
+■予定
+・Apache[実践]運用/管理 5~6章
+
+■実績
+・Apache[実践]運用/管理 5~6章
+
+■所感
+・ps コマンドで注目したいところ
+　→VSZ プロセスの仮想メモリサイズ
+　　RSS プロセスの使用している物理メモリサイズ
+
+・mod_status
+　→こちらでもリソースの消費を確認できる
+
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
