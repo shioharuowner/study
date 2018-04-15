@@ -14,6 +14,11 @@
 ・mod_status
 　→こちらでもリソースの消費を確認できる
 
+・ApacheでのWAF導入
+　→mod_securityというものがある
+　　前プロジェクトではウイルススキャンを兼ねてDeepSecurityを導入してたけど、
+　　無償だしこっちをつかってみても良かったかも
+
 
 ■メモ
 https://github.com/shioharuowner/
