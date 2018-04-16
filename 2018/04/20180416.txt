@@ -1,0 +1,32 @@
+20180416
+
+■予定
+・Apache[実践]運用/管理 7~9章
+
+■実績
+・Apache[実践]運用/管理 7~9章
+
+■所感
+・負荷分散、冗長性
+　→リバースproxyを使用することで、
+　　Apacheもロードバランサとして利用でき、負荷分散、冗長性が確保できる
+　　拡張モジュールのmod_proxy_balancerを利用する
+
+・キャッシュ
+　→キャッシュを有効活用することで、サーバ負荷を軽減しパフォーマンスを改善する
+　　クライアントキャッシングには「mod_headers/mod_expires」など
+　　サーバサイドキャッシングには「mod_cache/mod_disk_cache/mod_mem_cache」など
+
+・WebDAV
+　→WebDAVを利用することでApacheをファイルサーバとして利用することもできる
+　　WebDAVで個々のユーザー情報が膨大になった場合はLDAPを利用する
+
+・Apacheのフィルタリング
+　→ヘッダフッタを自動挿入する「mod_layout」というものもある
+　　前プロジェクトは各モジュールが各社で散っていたため、
+　　デザインや作りが異なるヘッダフッタが生まれていたが、そういうのを回避できるかも
+
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
