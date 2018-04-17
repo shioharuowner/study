@@ -1,0 +1,18 @@
+20180417
+
+■予定
+・Apache[実践]運用/管理 10~11章
+
+■実績
+・Apache[実践]運用/管理 10~11章
+
+■所感
+・Apacheでトラフィックやコネクションの制限
+　→mod_bwshare、mod_limitipconn、mod_bwなどがある
+
+・Apacheの認証
+　→Basic認証しか知らなかったが、mod_auth_openidでOpenID認証も可能
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
