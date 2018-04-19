@@ -1,0 +1,36 @@
+20180418
+
+■予定
+・履歴書、職務経歴書作成
+・Laravel入門1章
+
+■実績
+・履歴書、職務経歴書作成
+・Laravel入門1章
+
+■所感
+・Laravelの参考書を選定した理由
+　→求人でLaravelを用いているところもちょいちょい見かけるので、
+　　これを機に勉強しておくかと考えたため。
+　　ついでにPHP7で実施。
+
+・PHP7へ変更したとき、Apacheが起動しない
+　→C:\xampp\apache\conf\extra\httpd-xampp.conf内の記述がphp5のままだったから。
+　　php5となっている記述を全てphp7へ置換して解決
+
+・環境変数composerのやつはじめから設定されてた
+　→おそらくインストール時に設定してくれた模様
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+XAMPPのPHPをバージョンアップする（5.5→7.2）
+https://kde.hateblo.jp/entry/2018/02/12/022840
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
+

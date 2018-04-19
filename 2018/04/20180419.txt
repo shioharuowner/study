@@ -1,0 +1,85 @@
+20180419
+
+■予定
+・Laravel入門2章
+
+■実績
+・Laravel入門2章
+
+■所感
+・昨日の日報をコミットし忘れた
+　→日報作成後にすぐコミットするようにする
+
+・view(テンプレート名)
+　→/resources/views配下の、テンプレート名.blade.phpをレンダリングする
+
+・.blade.php内の@で始まる文
+　→Bladeというテンプレートエンジンを使用して書かれた文
+
+・コントローラー作成
+　→Laravelプロジェクト配下で php artisan make:controller HelloController
+　　のようにコマンドで作成できる
+
+・P47のミス？
+　→正：$end = '</body></html>';
+　　誤：$end = '</body></head>';
+　　かと思われる
+
+・応用？
+　→リスト2-11でfunction tag($tag, $txt)作っているのに、
+　　その後の演習で使わないのが草だったのでリスト2-15は以下のようにして実装
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
+global $head, $style, $body, $end;
+$head = '<html><head>';
+$style = <<<EOF
+<style>
+body {font-size:16pt; color:#999;}
+h1 {font-size:100pt; text-align:right; color:#eee; margin:-40px 0px -50px 0px;}
+</style>
+EOF;
+$body = '</head><body>';
+$end = '</body></html>';
+
+function tag($tag, $txt) {
+    return "<{$tag}>" . $txt . "</{$tag}>";
+}
+
+class HelloController extends Controller
+{
+    public function index(Request $request, Response $response) {
+        global $head, $style, $body, $end;
+        $html = $head 
+            . tag('title','Hello/Index') 
+            . $style 
+            . $body
+            . tag('h1', 'Hello')
+            . tag('h3', 'Request')
+            . "<pre>{$request}</pre>"
+            . tag('h3', 'Response')
+            . "<pre>{$response}</pre>"
+            . $end;
+        $response->setContent($html);
+        return $response;
+    }
+}
+
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+XAMPPのPHPをバージョンアップする（5.5→7.2）
+https://kde.hateblo.jp/entry/2018/02/12/022840
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
+
