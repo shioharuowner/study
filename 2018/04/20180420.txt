@@ -1,0 +1,79 @@
+20180420
+
+■予定
+・Laravel入門3章
+
+■実績
+・Laravel入門3章
+
+■所感
+・view('フォルダ名.ファイル名');
+　→/resources/views配下の、
+　　フォルダ名の中にあるファイル名のファイルをレンダリングする
+
+・view(テンプレート, 配列);
+　→テンプレートへの値の受け渡し
+
+・index.phpとindex.blade.phpが同階層に存在する場合
+　→.blade.phpが優先して読み込まれる
+
+・{{csrf_field()}}
+　→CSRF対策用の関数
+　　(トークン生成して正しくフォームから送信されたものか判別するやつ)
+
+・P72のミス？
+　→Route::post('hello', 'HelloController@post');
+　　のルート情報に記述する前にフォーム送信はできないはずなので、
+　　順番がちょっと誤解を招くかも
+
+・{{ }}の記述
+　→HTMLエスケープされる
+　　エスケープされたくない場合は、{!! !!}で記述する
+
+・@ディレクティブ
+　→基本的に普通のPHPと似た記述方式だが、
+　　@isset ($msg) 
+　　    <p>こんにちは、{{$msg}}さん。</p>
+　　@else
+　　    <p>何か書いてください。</p>
+　　@endisset
+　　のようなifとissetが合体したような記述のものもある
+
+・P80のミス？
+　→正：<li>{{$item}}</li>
+　　誤：<li>{{$item}}
+　　かと思われる
+
+・P81のミス？
+　→正：<li>No,{{$i}}</li>
+　　誤：<li>No,{{$i}}
+　　かと思われる
+
+・P91図3-18
+　→コード通りの画面ではないので違和感があるかも
+
+・View [component.massage] not found. エラーが出た
+　→タイプミス。View [component.message]に修正して解決
+
+・ビューコンポーザ
+　→FuelPHPでいうところのビューモデル。
+
+・サービスプロバイダ
+　→ビューコンポーザを利用するために必要
+　　コマンドでも作成可能
+　　例：php artisan make:provider HelloServiceProvider
+
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+XAMPPのPHPをバージョンアップする（5.5→7.2）
+https://kde.hateblo.jp/entry/2018/02/12/022840
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
+
