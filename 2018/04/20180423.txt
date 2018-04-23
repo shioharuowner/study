@@ -1,0 +1,61 @@
+20180423
+
+■予定
+・Laravel入門4章
+
+■実績
+・Laravel入門4章(途中まで)
+
+■所感
+・ミドルウェア
+　→コントローラとは別に指定のアドレスにリクエストが送られてきたら、
+　　自動的に何らかの処理を行う仕組み
+
+・php artisan make:middleware HelloMiddleware
+　→/app/Http フォルダ内にMiddlewareを作成するコマンド
+
+・ミドルウェアのhandleメソッドの戻り値
+　public function handle($request, Closure $next)
+　{
+　    return $next($request);
+　}
+　↑この$nextで返されるClosureの戻り値は？
+　　→Responseインスタンス。順序は以下の通り
+　１．クライアントからリクエストが送られる
+　２．ミドルウェアのhandleが呼び出される
+　３．$next($request);を実行する。
+　　　複数のミドルウェアが設定されている場合は次のミドルウェアのhandleが呼び出される
+　　　他にミドルウェアが設定されていない場合はコントローラにあるアクションが呼び出される
+　４．アクションメソッドが終わると共にページがレンダリングされレスポンスが生成される
+　　　この生成されたレスポンスが$nextの戻り値として返される
+　５．返されたレスポンスがミドルウェアのreturnとして返され、これがクライアントへ返される
+
+・グローバルミドルウェア
+　→通常、/routes/web.php にルート情報を記載していくが、
+　　1つ1つのルート情報を書くのは埒が明かない。
+　　/app/Http/Kanel.php に
+　　protected $middleware = [
+　　    \App\Http\Middleware\HelloMiddleware::class,
+　　];
+　　のように記載することでグローバルミドルウェアとして登録される
+　　そうすることで
+　　Route::get('hello', 'HelloController@index')
+　　    ->middleware(HelloMiddleware::class);
+　　と記載が必要だった部分が、
+　　どこにアクセスしても常にミドルウェアが実行されることになるので
+　　Route::get('hello', 'HelloController@index');
+　　のみでOKとなる。
+
+・ちょっと体調悪い
+　→4章を途中までにして明日に回す
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
+
