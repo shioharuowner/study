@@ -1,0 +1,237 @@
+20180424
+
+■予定
+・Laravel入門4～5章
+
+■実績
+・Laravel入門4～5章
+
+■所感
+・In Product Messaging Application
+　→ウイルス対策ソフトのAviraの広告を表示しようとするものらしい
+　　今のところ有償にする予定無いのでスルー
+
+
+
+・バリデーション
+　→FuelPHP同様、メソッドに検証ルールの配列を渡すとバリデーションを行ってくれる
+　　Laravelはバリデーションエラーとなった場合、自動的にフォームページを再表示してくれる
+　　エラーがある場合、$errors 変数にエラーを格納してくれる
+　　@foreach($errors->all() as $error)
+　　    <li>{{$error}}</li>
+　　@endforeach
+　　のようにすればエラーメッセージの表示も行える
+　　フォームに前回入力した値を表示したい場合は、value="{{old('name')}}" のように指定する、
+　　old()メソッドが用意されている。(この値はフラッシュセッションで保存されている)
+
+・バリデーションエラーメッセージ
+　→$errors->all() 全てのエラーメッセージを配列で取得
+　　$errors->first(項目名) 指定した項目の最初のエラーメッセージを取得
+　　$errors->get(項目名) 指定した項目の全てのエラーメッセージを配列で取得
+
+・emailのバリデーション
+　→filter_var()でFILTER_VALIDATE_EMAILのチェックをしているため、RFC822違反のメールアドレスなどはチェックできない模様。
+　　いまどきそんなメールアドレスは無いと割り切る(笑
+
+・カスタムバリデーション
+　→フォームリクエストを作成することで可能。
+　　php artisan make:request HelloRequest コマンドでフォームリクエスト作成ができる。
+　　
+
+・P137のリスト4-20のソース
+　→if($this->path() == 'hello')で指定しているが、
+　　if($this->path() === 'hello')の方が適切ではないか。(パスがストリング以外で返却されることは無いと思われるため)
+
+・エラーメッセージのカスタマイズ
+　→フォームリクエストにオーバーライドすることで可能。
+　　public function messages()
+　　{
+　　    return [
+　　        'name.required' => '名前は必ず入力してください。',
+　　        'mail.email' => 'メールアドレスが必要です。',
+　　        'age.numeric' => '年齢を整数で入力ください。',
+　　        'age.between' => '年齢は0～150の間で入力ください。',
+　　    ];
+　　}
+
+・バリデータの利用
+　→use Validatorをコントローラーに記載する。
+　　$validator = Validator::make(値の配列, 検証ルールの配列, メッセージ配列);
+　　ルールの追加が必要な場合は
+　　$validator->sometimes(値の配列, 検証ルールの配列, クロージャ);
+　　を使用する
+
+・オリジナルのバリデータ作成
+　→コマンドは無い
+　　/app/Http/配下にValidatorsフォルダを作成し、そこにスクリプトを用意する
+　　(例)
+　　<?php
+　　namespace App\Http\Validators;
+　　
+　　use Illuminate\Validation\Validator;
+　　
+　　class HelloValidator extends Validator
+　　{
+　　    public function validateHello($attribute, $value, $parameters)
+　　    {
+　　        return $value % 2 == 0;
+　　    }
+　　}
+　　
+　　作成したら、サービスプロバイダ(例えば/app/Providers/HelloServiceProvider)に組み込む
+　　(例)
+　　<?php
+　　
+　　namespace App\Providers;
+　　
+　　use Illuminate\Support\Facades\View;
+　　use Illuminate\Support\ServiceProvider;
+　　use Illuminate\Validation\Validator;
+　　use App\Http\Validators\HelloValidator;
+　　
+　　class HelloServiceProvider extends ServiceProvider
+　　{
+　　    public function boot()
+　　    {
+　　        $validator = $this->app['validator'];
+　　        $validator->resolver(function($translator, $data, $rules, $messages){
+　　            return new HelloValidator($translator, $data, $rules, $messages);
+　　        });
+　　    }
+　　
+　　    public function register()
+　　    {
+　　    }
+　　}
+
+・Validator::extendの利用
+　→上記オリジナルのバリデータ作成は汎用的に使用するためのものだが、
+　　ちょっとだけカスタマイズしたい場合にはValidator::extend(名前、クロージャ)を利用する
+
+・CSRF対策が不必要な場合
+　→/app/Http/Middleware/VerifyCsrfToken.php
+　　protected $except = [
+　　    'アクション名'
+　　];
+　　で/アクション名へPOST送信された際にはCSRF対策が実行されなくなる
+　　VerifyCsrfToken.php自体を無効にしたい場合は、
+　　/app/Http/Kernel.php内の
+　　\App\Http\Middleware\VerifyCsrfToken::class,
+　　という行を削除すればOK
+
+
+
+・LaravelでDBを使用する
+　→/config/database.php
+　　で設定する。(中身がわかりやすいので書き換える場所はすぐわかる)
+　　また、
+　　.env
+　　内の
+　　DB_CONNECTION
+　　DB_DATABASE
+　　も修正する。
+
+・Database (database.sqlite) does not exist. (SQL: select * from people)が出る
+　→windowsだと.envの指定が間違っている様子。
+　　誤：DB_DATABASE=database/database.sqlite
+　　正：DB_DATABASE="C:\Users\ユーザー名\Desktop\laravelapp\database\database.sqlite"
+　　で解決
+
+・could not find driver (SQL: select * from people) が出る
+　→上が解決したと思いきやすぐこれだよ…
+　　phpinfo()を見ると、PDOに何も書いておらず、sqliteのドライバーが無い様子
+　　C:\xampp\php\php.ini の
+　　;extension=pdo_sqlite を
+　　extension=pdo_sqlite にしてApache再起動、php artisan serve再実施で解決
+
+・SELECT文
+　→DB::select(実行するSELECT文);
+　　例
+　　DB::select('select * from people');
+　クエリビルダでSELECT
+　→DB::table(テーブル名)->get();
+　　DB::table('people')->get('id','name');など列指定も可能
+
+・INSERT文
+　→DB::insert(クエリ文, パラメータ配列);
+　　例
+　　$param = [
+　　    'name' => $request->name,
+　　    'mail' => $request->mail,
+　　    'age' => $request->age,
+　　];
+　　DB::insert('insert into people (name, mail, age) values (:name, :mail, :age)', $param);
+　クエリビルダでINSERT
+　→DB::table('people')->insert($param);
+
+・P188のミス？
+　→indexとpostをそのまま残し、とあるが、where文とかが消えてる
+
+・UPDATE文
+　→DB::update(クエリ文, パラメータ配列);
+　　例
+　　$param = [
+　　    'id' => $request->id,
+　　    'name' => $request->name,
+　　    'mail' => $request->mail,
+　　    'age' => $request->age,
+　　];
+　　DB::update('update people set name =:name, mail = :mail, age = :age where id = :id', $param);
+　クエリビルダでUPDATE
+　→DB::table('people')->where('id', $request->id)->update($param);
+
+・メソッドチェーン
+　→DB::table('people')->where('id', $id)->first();
+　　のようにクエリをメソッドチェーンにして書ける(この辺はFuelPHP同様)
+
+・where
+　→AND条件にしたい場合
+　　DB::table()->where()->where()->…
+　　OR条件にしたい場合
+　　DB::table()->where()->orWhere()->…
+　　複雑なので条件だけ書きたい場合
+　　DB::table()->whereRaw('age >= ? and age <= ?',[$min, $max])->…
+
+・マイグレーション
+　→DBのバージョン管理機能
+　　php artisan make:migration create_people_table コマンドで、
+　　/database/migrations/配下 にマイグレーションファイルを作成する
+　　予め空のdatabase.sqliteファイルを用意し、
+　　php artisan migrate コマンドを実行するとマイグレーションが行われ、
+　　XXXX_create_people_table.php のテーブルが作成される。
+
+・シーディング
+　→マイグレーションのみだと、テーブルのみのため初期値がない。
+　　ダミーのレコードを補うのがシーディング。
+　　php artisan make:seeder PeopleSeeder コマンドで、
+　　/database/seeds/配下 にシーダーファイルを作成する。
+　　生成されたPeopleSeeder.phpのrun()内にinsertするデータのクエリビルダを記述する。
+　　DatabaseSeeder.phpに
+　　$this->call(PeopleTableSeeder::class);
+　　を記載する。
+　　php artisan db:seed コマンドを実行するとシーディング処理が実行される。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
+
+『Avira Free Antivirus』の広告を出さなくする方法
+https://kazuphonic.com/entry/how-to-stop-advertisement-of-avira-free-antivirus/
+
+Laravel 5.5 HTTPリクエスト リクエストの取得 直前のデータを取得
+https://readouble.com/laravel/5.5/ja/requests.html
+
+Laravelのemailバリデーションルールは何をチェックしているのかというと
+https://qiita.com/B73W56H84/items/3497144c77318667e0cd
+
+SQLite
+https://www.sqlite.org/download.html
+
+DB Browser for SQLite
+http://sqlitebrowser.org/
