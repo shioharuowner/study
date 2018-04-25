@@ -1,0 +1,129 @@
+20180425
+
+■予定
+・Laravel入門6章
+
+■実績
+・Laravel入門6章
+
+■所感
+・モデルの作成
+　→LaravelはEloquentと呼ばれるORMが用意されておりモデルというクラスを利用する。
+　　php artisan make:model Person コマンドで作成
+　　/app 配下にモデルファイルが作成される
+
+・Laravelの命名規則
+　→テーブル名は複数形、モデルは単数と言う規則がある
+　　なのでそれに沿って作るほうが良い
+
+・モデルクラスを利用した検索
+　→$item = Person::find($request->input); のように記述。
+　　(検索結果が0件だった場合、$itemは NULL となる。)
+　　$item = Person::where('name', $request->input)->first(); のように、
+　　検索する列の指定も可能。
+
+・ローカルスコープ
+　→モデル内にメソッドを用意して条件を絞り込む
+　　public function scope名前($query, 引数)
+　　{
+　　    return 絞り込んだもの ;
+　　}
+　　のように記述する。
+　　複数の条件を組み合わせたい場合は、
+　　$item = Person::ageGreaterThan($min)->ageLessThan($max)->first();
+　　のようにメソッドチェーンで記述する。
+
+・グローバルスコープ
+　→そのモデル全てのレコード取得にそのスコープが適用される
+　　protected static function boot()
+　　{
+　　    parent::boot();
+　　    static::addGlobalScope('age', function (Builder $builder) {
+　　        $builder->where('age', '>', 20);
+　　    });
+　　}
+　　のように記述する
+
+・スコープクラス
+　→グローバルスコープの中で汎用性の高いものはスコープクラスにしたほうが良い
+　　/app 配下に Scopes フォルダを作成し、
+　　<?php
+　　namespace App\Scopes;
+　　
+　　use Illuminate\Database\Eloquent\Scope;
+　　use Illuminate\Database\Eloquent\Model;
+　　use Illuminate\Database\Eloquent\Builder;
+　　
+　　class ScopePerson implements Scope
+　　{
+　　    public function apply(Builder $builder, Model $model)
+　　    {
+　　        $builder->where('age', '>', 20);
+　　    }
+　　}
+　　のように作成する。
+
+・バリデーションのルール
+　→モデルクラスに用意しておいたほうが良い。
+　　そうすることでコントローラで
+　　$this->validate($request, Person::$rules);
+　　とスッキリした書き方ができる
+
+・P246のミス？
+　→getData()を残しておかないと、
+　　ユーザーを登録したあとに一覧画面飛んだときにエラーになるはず
+
+・formの値受け取り
+　→このように受け取れる
+　　$person->fill($form)->save();
+　　個別に受け取ることも可能
+　　$person->name = $request->name;
+　　$person->mail = $request->mail;
+　　$person->age = $request->age;
+　　$person->save();
+
+・リレーション
+　→hasOne結合
+　　2つのテーブルが1対1の関係であるものを主テーブルを基に従テーブルと結合
+　　public function board(){
+　　    $this->hasOne('App\Board');
+　　}
+
+　　hasMany結合
+　　2つのテーブルが1対他の関係であるものを主テーブルを基に従テーブルと結合
+　　public function boards(){
+　　    $this->hasMany('App\Board');
+　　}
+
+　　belongsTo結合
+　　2つのテーブルが1対他の関係であるものを従テーブルを基に主テーブルと結合
+　　belongsToで得られるレコードは常に1件
+　　$this->hasMany('App\Board');
+
+・関連リレーションを持つ/持たないの振り分け
+　→持つもの
+　　モデル::has(リレーション名)->get();
+
+　　持たないもの
+　　モデル::doesntHave(リレーション名)->get();
+
+・N+1問題
+　→例のPerson、BoardにおいてPerson::all()で全てのデータを取得しようとすると
+　　Boardが10個あったとしたら、Board全体の取得で1回、Boardそれぞれで10回で
+　　合計11回のアクセスが必要になる問題
+
+・with()
+　→N+1問題を回避するメソッド
+　　モデル::with(リレーション名)->get();
+　　処理の流れ：Boardだけを取得し、得られたBoardのperson_idをまとめてそれらのidのPersonを取得する
+　　このように先にデータを取得しておく方法をEagerローディングと言う
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
