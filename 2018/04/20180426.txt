@@ -1,0 +1,122 @@
+20180426
+
+■予定
+・Laravel入門7章
+
+■実績
+・Laravel入門7章
+
+■所感
+・RESTful
+　→分散型システムを構築するための考え方
+　　HTTPのメソッド(GETやPOSTなど)を使って決まったルールに従ってアクセスし、
+　　必要な情報を取得したり保存したりする仕組みに基づいて設計されたプログラムを
+　　RESTfulという
+
+・php artisan make:controller RestappController --resource
+　→--resourceのオプションをつけると、CRUD関連のアクション一式が予め作成される
+　一覧：index
+　作成：create、store
+　詳細：show
+　更新：edit、update
+　削除：destroy
+
+・セッションの利用
+　→値の保存
+　　$request->session()->put(キー名, 値);
+　　
+　　値の取得
+　　$sesdata = $request->session()->get(キー名);
+
+・セッションの保存先
+　→/config/session.php で設定可能。
+　　'driver' => env('SESSION_DRIVER', 'database'),
+　　のように設定する
+　　.env ファイルにも設定があるので
+　　SESSION_DRIVER=database
+　　のように設定する
+
+・ページネーション
+　→simplePaginate
+　　コントローラー側には
+　　$items = DB::table(テーブル名)->simplePaginate(表示件数);
+　　テンプレート側には
+　　{{ $items->links() }}
+　　で「<< Previous Next >>」のページネーションが作成可能
+　　モデルを利用している場合も、
+　　Person::simplePaginate(表示件数);
+　　で同様に可能
+　　ソートをしたい場合は
+　　$items = Person::orderBy($sort, 'asc')->simplePaginate(5);
+　　のように記述することで可能
+
+　　paginate
+　　コントローラー側には
+　　$items = Person::orderBy($sort, 'asc')->paginate(5);
+　　テンプレート側には
+　　{{ $items->links() }}
+　　で「<< 1 2 3 … N >>」のページネーションが作成可能
+
+・ページネーションのカスタマイズ
+　→{{ $items->links() }}のlinksの引数にテンプレート名を指定することで、
+　　そのテンプレートを使用することができる
+　　例
+　　{{ $items->appends(['sort' => $sort])->links('vendor/pagination/test') }}
+
+　　php artisan vendor:publish --tag=laravel-pagination コマンドで
+　　/resources/view 配下にvendor/pagination が作成され
+　　Laravelに用意されているテンプレートを作成できる
+　　simple～ がsimplePaginate用、
+　　何も付いていないのがsimple～ がpaginate用
+
+・ユーザー認証
+　→$user = Auth::user();
+　　ログインしていれば$userにユーザ情報が入る
+　　ログインしていない場合、NULLとなる
+
+　　if(Auth::attempt(['email' => $email, 'password' => $password])){
+　　    //ログイン後の処理
+　　} else {
+　　    //ログイン失敗の処理
+　　}
+　　のようにして認証することもできる。
+
+・P319リスト7-29のミス
+　→誤：<a href="/regster">登録</a>）</p>
+　　正：<a href="/register">登録</a>）</p>
+
+・P324のミス
+　→web.phpにルート情報を記載するようにしていない。
+　　web.phpに以下を追記。
+　　Route::get('hello/auth', 'HelloController@getAuth');
+　　Route::post('hello/auth', 'HelloController@postAuth');
+
+・ユニットテスト
+　→LaravelにはPHPUnitが組み込まれているのでそれを利用する
+　　php artisan make:test HelloTest のコマンドで
+　　/tests/Feature 配下にユニットテストのスクリプトを作成する
+　　プロジェクトをカレントディレクトリにして、
+　　vendor\bin\phpunit コマンドでユニットテスト実施
+　　assertTrue(チェックしたい変数)
+　　assertStatus(チェックしたい変数)
+　　assertEmpty(チェックしたい変数)
+　　などの関数を用いて、検証ができる
+
+・P327
+　→UserFactory.phpはあったが、ModelFactory.phpは無かった
+　　ModelFactory.php自体を作成して実施
+
+・Laravel総評
+　→コマンドで色々と自動生成できるのが良い。
+　　あと標準で命名規則や型っぽいのがしっかりしている点もPHPのダメなところを補えているので良い。
+　　強いて言えばWindowsだと扱いづらく感じる人も居るかも。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+Laravel
+http://laravel.jp/
+
+Composer
+https://getcomposer.org/
