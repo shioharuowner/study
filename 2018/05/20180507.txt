@@ -1,0 +1,24 @@
+20180507
+
+■予定
+・HTML&CSS1章～4章
+
+■実績
+・HTML&CSS1章～4章
+
+■所感
+・美容室
+　→お休みだった…
+
+・履歴書
+　→手書き用の用紙は買わなくても良かった…？
+
+・<nav>
+　→ナビゲーションタグ
+　　そのページに含まれる主要なコンテンツを意味するタグ
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・5/10(木) 11:00 面談
