@@ -1,0 +1,45 @@
+20180509
+
+■予定
+・HTML&CSS7章～8章
+
+■実績
+・HTML&CSS7章～8章
+
+■所感
+・美容室
+　→ようやくいけた。
+　　第一月曜も定休日になってたらしい
+
+・outline: 1px solid #ff0000;
+　→タグによって分けられた領域を表示できる。
+
+・em
+　→要素に設定されたフォントサイズを1emとする単位。
+　　フォントサイズが16pxなら、1em=16px。
+　　フォントサイズが5pxなら、1em=5px。
+　　1文字分のスペースを空けたい場合などに用いる。
+
+・CSSのボックスモデル
+　→コンテンツ領域の周辺にパディング、ボーダー、マージンという3層の領域で定義されたもの。
+
+・box-sizing: border-box;
+　→widthプロパティ、heightプロパティで指定する値をボーダー領域まで含む幅と高さに変更するプロパティ。
+　　レスポンシブデザインで作る際の常套手段。
+
+・CSSで画像を指定する場合の注意
+　→CSSファイルを起点とした相対パスを指定する必要があるため注意。
+
+・Copyright hoge. All rights reserved.
+　→気になって調べてみたが慣習で書いてるだけで全く意味ないらしい。
+　　今後自分がサイトを作る立場になったら書かないよう努める。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・コピーライトについて
+　→https://aws2000.net/?p=3294
+　　http://copyright-topics.jp/topics/all-rights-reserved-unnecessary/
+
+・5/10(木) 11:00 面談
