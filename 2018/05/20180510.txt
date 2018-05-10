@@ -1,0 +1,33 @@
+20180510
+
+■予定
+・HTML&CSS9章～10章
+
+■実績
+・HTML&CSS9章～10章
+
+■所感
+・面談
+　→悪い印象は与えてないとは思うけど…どうだろう
+
+・floatの注意
+　→デザイン崩れが起きないよう、使用を解除するための
+　　.clear {
+　　	clear: both;
+　　}
+　　CSSに記述しておくと吉。
+
+・lavelタグ
+　→視覚障害者向けの読み上げ機能ではラベルを読み上げたあとに関連する部品が選択され、入力できる状態になる
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・HTMLバリデーションサービス
+　→https://validator.w3.org
+
+・CSSバリデーションサービス
+　→http://www.css-validator.org/validator.html.ja
+
+・5/17(木)まで二次面談の連絡無かったら落選
