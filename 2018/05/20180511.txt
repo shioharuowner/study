@@ -1,0 +1,23 @@
+20180511
+
+■予定
+・HTML&CSS11章～12章
+
+■実績
+・HTML&CSS11章～12章
+
+■所感
+・<meta name="viewport" content="width=device-width, initial-scale=1">
+　→モバイル端末でのブラウザは初期表示で全体を表示をしようとするため、
+　　ページを小さく縮小して全体表示する。それを無効にするタグ。
+
+・メディアクエリ
+　→@media (条件: 式) {
+　　	条件を満たしたときに適用するスタイル
+　　}
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・5/17(木)まで二次面談の連絡無かったら落選
