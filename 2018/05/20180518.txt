@@ -1,0 +1,34 @@
+20180518
+
+■予定
+・王道SEO対策実践講座4章
+・面談
+
+■実績
+・王道SEO対策実践講座4章
+・面談
+
+■所感
+・XMLサイトマップ
+　→検索エンジンにWebサイトのコンテンツ構成を伝えるためのファイル
+　　サイト作成直後で効果を発揮する
+　　・実際に作成したXML
+　　<?xml version="1.0" encoding="UTF-8" ?>
+　　<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
+　　  <url>
+　　    <loc>http://shioharu.minibird.jp/</loc>
+　　    <lastmod>2017-05-14</lastmod>
+　　    <changefreq>monthly</changefreq>
+　　    <priority>1.0</priority>
+　　  </url>
+　　</urlset>
+
+・robots.txt
+　→Google以外にも対応するWebサイトのコンテンツ構成を伝えるためのファイル
+　　主に完了画面など、検索エンジンに表示されたくない画面でクローラの巡回拒否に使用する
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・5/18(金) 17:00～面談
