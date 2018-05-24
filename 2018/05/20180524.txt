@@ -1,0 +1,26 @@
+20180524
+
+■予定
+・王道SEO対策実践講座8章
+
+■実績
+・王道SEO対策実践講座8章
+
+■所感
+・表示速度を知るためのチェックツール
+　→https://developers.google.com/speed/pagespeed/insights/
+　　ここにURLを入力するとCSSなどの最適化の手段を教えてくれる
+
+・HTMLチェックツール
+　→https://validator.w3.org/
+
+・キーワード出現率チェックツール
+　→https://funmaker.jp/seo/funkeyrating/
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・5/21週で面談後の審議があるそう
+
+・5/28(月) 11:00～ 面談
