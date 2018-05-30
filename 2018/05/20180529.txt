@@ -1,0 +1,69 @@
+20180529
+
+■予定
+・javaフレームワーク入門1、2
+
+■実績
+・javaフレームワーク入門1、2途中
+
+■所感
+・面談結果
+　→通った。あとはどうなっていくか…
+
+・Hibernate
+　→Java のためのオブジェクト関係マッピング (ORM) ライブラリ
+　　既にHibernate最新版の構成がテキストと全然違ってて困る…
+　　なのでテキストと同様に5.0.1.Finalを使うことにする
+
+・Maven
+　→Javaのビルドツール。(いきなり11章に飛んでインストールさせるという本の構成が気になった
+　　cd C:\Users\Haruto Shiokawa\Desktop\hibernate\hibernate-app
+　　mvn jetty:run
+　　でローカルサーバの起動
+
+・Windowsのcmdからmysql
+　→"C:\Program Files\MySQL\MySQL Shell 8.0\bin\mysqlsh.exe" -u root
+　　でmysqlシェルを実行、rootユーザでログイン
+　　\sql
+　　で今まで使ってきたようなコマンドラインでのsqlモードとなる
+
+・hibernate.cfg.xml
+　→hibernateの設定情報を記述する設定ファイル
+
+・map.hbm.xml
+　→データベースの内容を保管する永続化クラスと、
+　　データベーステーブルの内容を対応させるマッピングファイル
+
+・mysqlサーバの起動と停止
+　→"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld"
+　　"C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqladmin" -u root shutdown
+
+・page1.jsp
+　→WindowsのMysqlに接続できないエラー。
+　　仕方が無いのでxampp上のMysqlを使うことにする。
+　　(というか最初からそれで良かったような気がする…
+　　この時点でhttp://localhost:8080/page1.jspへのアクセスは成功
+　　だがテーブルの中身が出ない。
+　　→掲載リスト2-8——map.hbm.xmlが間違っている。
+　　　不要なタブが入り込んでいる。
+　　　もととなる解答にタブがあってエラーになる系はわからないからマジで止めて欲しい…
+
+・リスト2-12ビルドエラー
+　→Servlet1.java:[23,20] エラー: この文字は、エンコーディングMS932にマップできません
+　　おそらくUTF-8とMS932の差異によるエンコードエラー。
+　　エンコードをあわせるのが面倒なので全角の日本語を省いて実施
+
+・リスケ
+　→2章が途中までしかいかなかったのでリスケ。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・Hibernate
+https://sourceforge.net/projects/hibernate/?source=typ_redirect
+
+・Maven
+https://maven.apache.org/download.cgi
+
+・5/30(水) 11:00～　面談

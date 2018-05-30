@@ -1,0 +1,27 @@
+20180530
+
+■予定
+・面談
+・javaフレームワーク入門2
+
+■実績
+・面談
+
+■所感
+・面談結果
+　→内定
+
+・リスケ
+　→内定後、必要書類や健康診断や口座作成が必要になったのでしばらく勉強延期。
+
+■メモ
+https://github.com/shioharuowner/
+https://www.wrike.com/workspace.htm?acc=2061131#path=folder&id=-1&a=2061131&c=timeline3&so=10&sd=0
+
+・Hibernate
+https://sourceforge.net/projects/hibernate/?source=typ_redirect
+
+・Maven
+https://maven.apache.org/download.cgi
+
+・6/4(月) 9:30～　出社
